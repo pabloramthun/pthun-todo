@@ -1,4 +1,4 @@
-# Next.js Todo App with Shadcn UI
+# Pthun Todo App with Next.js and Shadcn UI
 
 This is a simple yet elegant todo application built using Next.js and Shadcn UI. It allows users to create, manage, and complete their tasks efficiently.
 
