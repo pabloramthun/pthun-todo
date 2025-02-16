@@ -6,11 +6,11 @@ export default function CheckEmailPage() {
       <Card className="w-full max-w-md">
         <CardHeader>
           <CardTitle>Check Your Email</CardTitle>
-          <CardDescription>We've sent you a magic link</CardDescription>
+          <CardDescription>We have sent you a magic link</CardDescription>
         </CardHeader>
         <CardContent>
           <p className="text-center">
-            Please check your email for a magic link to sign in. If you don't see it, you may need to check your spam
+            Please check your email for a magic link to sign in. If you do not see it, you may need to check your spam
             folder.
           </p>
         </CardContent>
