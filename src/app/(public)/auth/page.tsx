@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { sendMagicLink } from "../actions/auth"
+import { sendMagicLink } from "../../actions/auth"
 
 export default function AuthPage() {
   return (

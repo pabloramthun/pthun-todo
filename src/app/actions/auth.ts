@@ -5,10 +5,6 @@ import { redirect } from "next/navigation"
 export async function sendMagicLink(formData: FormData) {
   const email = formData.get("email")
 
-  if (!email || typeof email !== "string") {
-    return { error: "Please provide a valid email address." }
-  }
-
   // Here you would typically integrate with your authentication service
   // to actually send the magic link. For this example, we'll simulate it.
   console.log(`Magic link sent to: ${email}`)
