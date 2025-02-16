@@ -4,7 +4,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/com
 
 export default function WelcomePage() {
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-background bg-gray-100 flex flex-col">
       <header className="border-b">
         <div className="container mx-auto py-4">
           <h1 className="text-2xl font-bold text-primary">Todo App</h1>
