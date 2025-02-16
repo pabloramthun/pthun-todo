@@ -8,12 +8,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { Select,  SelectContent,  SelectItem,  SelectTrigger,  SelectValue } from "@/components/ui/select"
+import { redirect } from "next/navigation"
 
 const formSchema = z.object({
   title: z.string().min(1, "Title is required").max(100, "Title must be 100 characters or less"),
   description: z.string().max(500, "Description must be 500 characters or less").optional(),
-  status: z.string({required_error: "Please select a status."}),
 })
 
 export default function AddTodoForm() {
@@ -24,7 +23,6 @@ export default function AddTodoForm() {
     defaultValues: {
       title: "",
       description: "",
-      status: "P",
     },
   })
 
@@ -34,9 +32,7 @@ export default function AddTodoForm() {
     console.log(values)
     // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1000))
-    setIsSubmitting(false)
-    form.reset()
-    alert("Todo added successfully!")
+    redirect("/todo")
   }
 
   return (
@@ -73,30 +69,11 @@ export default function AddTodoForm() {
                 </FormItem>
               )}
             />
-            <FormField
-              control={form.control}
-              name="status"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Status</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select a status for todo" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        <SelectItem value="P">Pending</SelectItem>
-                        <SelectItem value="I">In Progress</SelectItem>
-                        <SelectItem value="C">Complete</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
             <Button type="submit" className="w-full" disabled={isSubmitting}>
               {isSubmitting ? "Adding..." : "Add Todo"}
+            </Button>
+            <Button variant="secondary" className="w-full" disabled={isSubmitting}>
+              Cancel
             </Button>
           </form>
         </Form>
